@@ -16,6 +16,11 @@ for (let drumButton of drumButtons) {
   });
 }
 
+// Detecting Keyboard Press
+document.addEventListener("keydown", function (event) {
+  playDrumSound(event.key);
+});
+
 function playDrumSound(key) {
   switch (key) {
     case "w":
