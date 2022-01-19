@@ -13,12 +13,14 @@ var kickBassSound = new Audio("sounds/kick-bass.mp3");
 for (let drumButton of drumButtons) {
   drumButton.addEventListener("click", function () {
     playDrumSound(this.textContent);
+    buttonAnimation(this.textContent);
   });
 }
 
 // Detecting Keyboard Press
 document.addEventListener("keydown", function (event) {
   playDrumSound(event.key);
+  buttonAnimation(event.key);
 });
 
 function playDrumSound(key) {
@@ -49,4 +51,12 @@ function playDrumSound(key) {
       console.log(key);
   }
 
+}
+
+function buttonAnimation(key) {
+  var activeButton = document.querySelector("." + key);
+  activeButton.classList.add("pressed");
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
